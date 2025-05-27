@@ -3,13 +3,16 @@ project:
   output-dir: public
 
 website:
-  title: "Crowbar"       # ← your site title
-  page-navigation: true    # ← keep prev/next links
+  page-navigation: true
+  title: "saik1117"
   navbar:
     left:
-      - text: Home;        href: index.html
-      - text: Writing;     href: writing/index.html
-      - text: "Math & Physics"; href: physics/index.html
+      - text: "Home"
+        href: index.html
+      - text: "Writing"
+        href: writing/index.html
+      - text: "Math & Physics"
+        href: physics/index.html
 
 format:
   html:
@@ -22,3 +25,4 @@ format:
 output:
   html:
     clean-url: true
+
