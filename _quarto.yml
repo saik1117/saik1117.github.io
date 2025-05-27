@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs        # ← build your HTML into docs/
+  output-dir: public
 
 website:
   title: "Crowbar"       # ← your site title
