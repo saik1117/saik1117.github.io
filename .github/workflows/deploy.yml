@@ -11,17 +11,24 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # 1) grab your code
       - uses: actions/checkout@v4
-
-      # 2) install Quarto CLI
       - uses: quarto-dev/quarto-actions/setup@v2
 
-      # 3) render your website into `public/`
       - name: Render Quarto site
         run: quarto render
 
-      # 4) publish `public/` to the gh-pages branch
+      - name: Copy .well-known to public (if exists)
+        run: |
+          if [ -d .well-known ]; then
+            cp -r .well-known public/
+          fi
+
+      - name: Copy _config.yml to public
+        run: cp _config.yml public/
+
+      - name: Copy modules to public
+        run: cp -r modules public/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
