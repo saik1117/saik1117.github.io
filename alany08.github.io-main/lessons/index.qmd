@@ -1,0 +1,10 @@
+Lessons
+---
+
+*Last updated 2025-05-26*
+
+It would probably be better to have a legit indexing system,
+but for now I'll just have this be the index for the lessons
+I have.
+
+- [Calculus III](/lessons/calc3)

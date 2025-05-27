@@ -1,0 +1,29 @@
+format:
+  html:
+    self-contained: true
+    toc: true
+    # Clean URLs enabled
+    html-math-method: mathjax
+    page-layout: full
+    # Enable clean URLs
+    anchor-sections: true
+
+website:
+  page-navigation: true
+  title: "616c616e"
+  navbar:
+    left:
+      - text: Lessons
+        href: lessons/index.qmd
+
+project:
+  type: website
+  output-dir: public
+  render:
+    - "**/*.qmd"
+    - "!public/"
+
+# ✅ Most important part:
+output:
+  html:
+    clean-url: true

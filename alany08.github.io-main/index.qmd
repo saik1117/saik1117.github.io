@@ -1,0 +1,12 @@
+Home - 616c616e
+---
+
+*Last updated 2025-05-26*
+
+Hello there! Welcome to my personal blog, where I (will) post cool stuff I find, my
+opinions and thoughts, and some stuff that interests me. I'll also try to create
+interactive lessons from an intuitive standpoint for mathematics and physics. With
+my belief in free and open-source, all of the contents on this website are licensed
+under the MIT license unless otherwise stated.
+
+There's currently not a lot on here, as I've recently started building this page.
