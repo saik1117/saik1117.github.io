@@ -1,0 +1,29 @@
+name: Deploy Quarto site to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1) grab your code
+      - uses: actions/checkout@v4
+
+      # 2) install Quarto CLI
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      # 3) render your website into `public/`
+      - name: Render Quarto site
+        run: quarto render
+
+      # 4) publish `public/` to the gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
