@@ -1,8 +1,11 @@
-name: Deploy Quarto site to GitHub Pages
+name: Build & deploy Quarto site to public/
 
 on:
   push:
     branches: [ main ]
+    # Don’t retrigger when public/ changes
+    paths-ignore:
+      - 'public/**'
 
 permissions:
   contents: write
@@ -12,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true  
+
       - uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render Quarto site
@@ -29,8 +35,10 @@ jobs:
       - name: Copy modules to public
         run: cp -r modules public/
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+      - name: Commit & push public/
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public
+          git commit -m "🔄 Update built site" || echo "No changes to commit"
+          git push origin main
